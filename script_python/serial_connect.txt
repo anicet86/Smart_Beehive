@@ -1,0 +1,21 @@
+  GNU nano 8.4                     smartbeehive.py
+print("Lecture continue (Ctrl+C pour arreter)...")
+
+try:
+    buffer = b""
+    while True:
+        # Lire TOUT ce qui est disponible
+        data = ser.read(ser.in_waiting or 1)
+        if data:
+            buffer += data
+            print("Octets recus:", data.hex())
+
+            # Traiter les trames completes
+            while len(buffer) >= 24:
+                frame = buffer[:24]
+                buffer = buffer[24:]
+                print(" TRAME COMPLETE:", frame.hex())
+
+        time.sleep(0.01)
+
+except KeyboardInterrupt:
