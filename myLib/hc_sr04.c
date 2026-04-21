@@ -39,7 +39,7 @@ static void GPIOA_Init(void)
 
     // PA7 = ECHO (entrée FLOTTANTE - pas de pull !)
     GPIOA->MODER &= ~(3U << (HCSR04_ECHO_PIN * 2));
-    GPIOA->PUPDR &= ~(3U << (HCSR04_ECHO_PIN * 2)); // ← CRITIQUE
+    GPIOA->PUPDR &= ~(3U << (HCSR04_ECHO_PIN * 2)); //  CRITIQUE
 }
 
 /* Fonctions inline pour Trig/Echo */
@@ -100,7 +100,7 @@ uint32_t HCSR04_Read(HCSR04_Data *data)
 
     // Impulsion Trig (10 µs)
     trig_set_high();
-    TimerDelay_us(10); // Ton délai existant (doit fonctionner à 16 MHz)
+    TimerDelay_us(10); // délai existant (doit fonctionner à 16 MHz)
     trig_set_low();
 
     // Mesurer le pulse Echo
