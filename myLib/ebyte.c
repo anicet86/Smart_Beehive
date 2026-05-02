@@ -16,7 +16,7 @@
 #include "task.h"
 
 // BRR pour 9600 @ PCLK2 = 84 MHz
-#define USART1_BRR_VALUE 0x222E; //0x22C
+#define USART1_BRR_VALUE 0x222E //0x22C
 
 static void gpio_init(void)
 {
