@@ -16,8 +16,8 @@ volatile uint16_t rx_buffer[INMP441_BUFFER_SIZE];
 volatile uint8_t  sample_ready = 0;
 
 /**
- * @brief Traite un échantillon I2S 16-bit
- * @note Contient la logique de découpage/reconstruction demandée
+ *Traite un échantillon I2S 16-bit
+ *  Contient la logique de découpage/reconstruction demandée
  */
 void INMP441_ProcessSample(uint16_t sample) {
     // Découpage 16-bit -> 2 x 8-bit
@@ -33,7 +33,7 @@ void INMP441_ProcessSample(uint16_t sample) {
 }
 
 /**
- * @brief Initialisation complète I2S2 + DMA1 Stream4 pour INMP441
+ *  Initialisation complète I2S2 + DMA1 Stream4 pour INMP441
  */
 void INMP441_Init(void) {
     // 1. Horloges
@@ -79,7 +79,7 @@ void INMP441_Init(void) {
         DMA_SxCR_PSIZE_0 |           // Taille périphérique: 16-bit
         DMA_SxCR_MSIZE_0 |           // Taille mémoire: 16-bit
         (0U << DMA_SxCR_DIR_Pos) |   // Direction: Peripheral -> Memory
-        DMA_SxCR_CIRC |              // ⭐ Mode circulaire (auto-reboucle)
+        DMA_SxCR_CIRC |              // Mode circulaire (auto-reboucle)
         DMA_SxCR_HTIE | DMA_SxCR_TCIE; // Interruptions Half & Transfer Complete
 
     // 6. NVIC
@@ -95,8 +95,8 @@ void INMP441_Init(void) {
 }
 
 /**
- * @brief Gestionnaire d'interruption DMA1 Stream4
- * @note Appelée automatiquement par le vecteur d'interruption
+ *  Gestionnaire d'interruption DMA1 Stream4
+ *  Appelée automatiquement par le vecteur d'interruption
  */
 /*void DMA1_Stream4_IRQHandler(void) {
     // Half-Transfer : première moitié du buffer remplie
