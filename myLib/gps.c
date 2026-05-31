@@ -56,7 +56,7 @@ void Gps_Init(void)
     Usart3_Init();
 }
 
-// 🔥 Nouvelle ISR : USART3, pas DMA !
+//  Nouvelle ISR : USART3, pas DMA !
 void USART3_IRQHandler(void)
 {
     if (USART3->SR & USART_SR_RXNE) {
