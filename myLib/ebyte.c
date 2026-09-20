@@ -10,8 +10,6 @@
 #include "ebyte.h"
 #include <stdlib.h>
 #include  "delay1.h"
-
-#include "ebyte.h"
 #include "FreeRTOS.h"
 #include "task.h"
 
